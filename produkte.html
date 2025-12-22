@@ -56,7 +56,26 @@ header a{color:#fff;margin-left:20px;text-decoration:none}
     justify-content: center;
     gap: 15px;
   }
+}@media(max-width:768px){
+  header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  header nav a,
+  header nav button {
+    margin: 5px;
+  }
 }
+
 /* ==================== SOCIAL ICONS ==================== */
 .social-icons {
     display: flex;
