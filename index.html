@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOVAÇICA</title>
+
+<!-- Font Awesome per ikonat -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ==================== GLOBAL ==================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #e8ece4; /* ngjyra tokësore e lehtë */
+    color: #2e2e2e;
+}
+
+a { text-decoration: none; }
+
+/* ==================== HEADER ==================== */
+.main-header {
+  background: #2a3a0f;
+  color: white;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.slogan
+{font-size: 40px;
+  font-weight: initial;
+  letter-spacing: 2px;}
+/*menu*/
+
+
+.right-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.right-menu a {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.right-menu a:hover {
+  text-decoration: underline;
+}
+
+
+.lang a {
+  color: white;
+}
+
+
+/* Mobile */
+@media(max-width:768px){
+  .main-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* ==================== HERO ==================== */
+.hero-slider { position: relative; overflow: hidden; }
+  .slide { display: none; position: relative; }
+  .slide.active { display: block; }
+
+  .slide img { width: 100%; height: 90vh; object-fit: cover; }
+  .slide-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    color: #000000;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  }
+  .hero-slider .slide-caption {
+    position: absolute;
+    top: 50%;           /* vendos vertikalisht në mes */
+    left: 50%;          /* vendos horizontalisht në mes */
+    transform: translate(-50%, -50%); /* qendron vertikalisht dhe horizontalisht */
+    color: #000000;
+    text-align: center; /* qendron teksti */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+.hero-slider .slide-caption h2 {
+    font-size: 30px; /* rrit madhësinë sipas dëshirës */
+    margin: 0;
+}
+
+.hero-slider .slide-caption h3 {
+    font-size: 40px;
+    margin: 10px 0 20px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #000000;/*#2a3a0f*/
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+}
+/* ==================== WHY US ==================== */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.why-box {
+  background: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.why-box i {
+  font-size: 38px;
+  color: #2a3a0f;
+  margin-bottom: 15px;
+}
+
+.why-box p {
+  font-weight: 500;
+  font-size: 16px;
+}
+/* ==================== SECTIONS ==================== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 30px;
+}
+
+section { margin-bottom: 80px; }
+
+
+
+
+
+
+/* ==================== SOCIAL ICONS ==================== */
+.social-icons {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.social-icons a {
+    font-size: 32px;
+    color: white;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color:#2a3a0f; /*Ngjyre*/
+    transform: scale(1.2);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: #2a3a0f;
+    color: rgb(246, 249, 248);
+    text-align: center;
+    padding: 30px;
+}
+
+/* ==================== ANIMATIONS ==================== */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== MOBILE ==================== */
+@media (max-width: 768px) {
+    .contact-locations {
+        grid-template-columns: 1fr;
+    }
+}
+/*ANIMACIONE TE PRODUKTEVE*/
+.product {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+
+.product.show {
+  opacity: 1;
+  transform: scale(1);
+}
+@media(max-width:768px){
+  header { flex-direction: column; }
+  .hero h2 { font-size: 42px; }
+  .products { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width:480px){
+  .products { grid-template-columns: 1fr; }
+}
+.maps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .maps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-box iframe {
+    height: 300px;
+  }
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .classic-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .right-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+}
+/*MAP*/
+.map-switch {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.map-switch button {
+  padding: 8px 22px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: #ccc;
+  font-weight: 500;
+}
+
+.map-switch button.active {
+  background: #2a3a0f;
+  color: white;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  filter: grayscale(30%) invert(90%) hue-rotate(180deg);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .map-wrapper iframe {
+    height: 300px;
+  }
+}
+/*RRETH NESH*/
+.about-box {
+  background: white;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  border-left: 6px solid #2a3a0f;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/*TRARE DRURI*/
+
+/* BUTON VETËM PËR TRARË DRURI */
+.timber-btn {
+  align-self: flex-start;
+  padding: 14px 32px;
+  background: #2a3a0f;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+}
+/* ================= FIX TRARË DRURI ================= */
+#trare-druri {
+  background: #f3f4f2;
+}
+
+#trare-druri .container {
+  max-width: 1100px;
+}
+
+/* Mos e bëj si kartë */
+#trare-druri .about-box {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Titulli */
+#trare-druri h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #2a3a0f;
+}
+
+/* Paragrafi kryesor */
+#trare-druri p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Lista – JO SI BUTONA */
+#trare-druri ul {
+  list-style: disc;
+  margin: 25px auto;
+  padding-left: 20px;
+  max-width: 700px;
+}
+
+#trare-druri li {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* BUTONI – I VEÇANTË NGA HERO */
+#trare-druri .hero-btn {
+  background: #2a3a0f;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  #trare-druri h2 {
+    font-size: 32px;
+  }
+
+  #trare-druri p,
+  #trare-druri li {
+    font-size: 16px;
+  }
+}
+/* ================= FIX RRETH NESH ================= */
+#about {
+  background: #f3f4f2;
+  padding: 100px 0;
+}
+
+#about .about-box {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Titulli */
+#about h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #2a3a0f;
+}
+
+/* Teksti */
+#about p {
+  font-size: 19px;
+  line-height: 1.9;
+  color: #444;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  #about {
+    padding: 60px 0;
+  }
+
+  #about h2 {
+    font-size: 32px;
+  }
+
+  #about p {
+    font-size: 16px;
+  }
+}
+</style>
+
+
+</head>
+<body>
+
+<header class="main-header">
+  <div class="logo">KOVAÇICA</div>
+
+  <nav class="right-menu">
+    <a href="index.html" data-sq="Ballina" data-en="Home">Ballina</a>
+    <a href="produkte.html" data-sq="Produktet" data-en="Products">Produktet</a>
+    <a href="contact.html"data-sq="Kontakti" data-en="Contact">Kontakti</a>
+    <a href="#about"data-sq="Rreth Nesh" data-en="About Us">Rreth Nesh</a>
+  
+    <button onclick="setLang('sq')">SQ</button>
+    <button onclick="setLang('en')">EN</button>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<div class="hero-slider fade">
+  <div class="slides">
+    <div class="slide active">
+      <img src="images/foto1.jpg" alt="Foto 1">
+      <div class="slide-caption">
+        <h2>KOVAÇICA</h2>
+        <h3 class="slogan" data-sq="Ndërto me siguri!" data-en="Build with confidence!">
+          Ndërto me siguri!
+        </h3>
+        <a href="produkte.html" class="timber-btn" data-sq="Shiko Produktet" data-en="View Products">
+          Shiko Produktet
+        </a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/foto2.jpg" alt="Foto 2">
+      <div class="slide-caption">
+        <h2>KOVAÇICA</h2>
+        <h3 class="slogan" data-sq="Ndërto me siguri!" data-en="Build with confidence!">
+          Ndërto me siguri!
+        </h3>
+        <a href="produkte.html" class="timber-btn" data-sq="Shiko Produktet" data-en="View Products">
+          Shiko Produktet
+        </a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/foto3.jpg" alt="Foto 3">
+      <div class="slide-caption">
+        <h2>KOVAÇICA</h2>
+        <h3 class="slogan" data-sq="Ndërto me siguri!" data-en="Build with confidence!">
+          Ndërto me siguri!
+        </h3>
+        <a href="produkte.html" class="timber-btn" data-sq="Shiko Produktet" data-en="View Products">
+          Shiko Produktet
+        </a>
+        
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/foto4.jpg" alt="Foto 4">
+      <div class="slide-caption">
+        <h2>KOVAÇICA</h2>
+        <h3 class="slogan" data-sq="Ndërto me siguri!" data-en="Build with confidence!">
+          Ndërto me siguri!
+        </h3>
+        <a href="produkte.html" class="timber-btn" data-sq="Shiko Produktet" data-en="View Products">
+          Shiko Produktet
+        </a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/foto5.jpg" alt="Foto 5">
+      <div class="slide-caption">
+        <h2>KOVAÇICA</h2>
+        <h3 class="slogan" data-sq="Ndërto me siguri!" data-en="Build with confidence!">
+          Ndërto me siguri!
+        </h3>
+        <a href="produkte.html" class="timber-btn" data-sq="Shiko Produktet" data-en="View Products">
+          Shiko Produktet
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hero-slider faqe">
+
+</div>
+<!-- ==================== TRARË DRURI MAIN SECTION ==================== -->
+<section id="trare-druri" class="fade">
+  <div class="container">
+
+    <h2 
+      data-sq="🪵 Trarë Druri Cilësor për Ndërtime të Qëndrueshme"
+      data-en="🪵 Quality Wooden Beams for Sustainable Construction">
+         🪵 Trarë Druri Cilësor për Ndërtime të Qëndrueshme
+    </h2>
+
+    <p style="text-align:center; font-size:18px; margin-bottom:40px;"
+      data-sq="Forcë natyrore • Cilësi e garantuar • Punim profesional"
+      data-en="Natural strength • Guaranteed quality • Professional workmanship">
+      <strong>Forcë natyrore • Cilësi e garantuar • Punim profesional</strong>
+    </p>
+
+    <div class="about-box">
+      <p
+        data-sq="Ne ofrojmë trarë druri të përpunuar me standarde të larta, të përshtatshëm për ndërtime rezidenciale, industriale dhe projekte tradicionale apo moderne."
+        data-en="We offer wooden beams processed to high standards, suitable for residential, industrial, and both traditional and modern construction projects.">
+        Ne ofrojmë trarë druri të përpunuar me standarde të larta, të përshtatshëm për ndërtime rezidenciale, industriale dhe projekte tradicionale apo moderne.
+      </p>
+
+      <ul style="margin-top:20px; line-height:1.8;">
+        <li
+          data-sq=" Trarë druri për çati dhe konstruksione"
+          data-en=" Wooden beams for roofs and structural constructions">
+           Trarë druri për çati dhe konstruksione
+        </li>
+        <li
+          data-sq=" Trarë druri të përpunuar sipas porosisë"
+          data-en=" Custom-made wooden beams">
+           Trarë druri të përpunuar sipas porosisë
+        </li>
+      
+        <li
+          data-sq="Furnizim për projekte ndërtimi dhe arkitekturore"
+          data-en=" Supply for construction and architectural projects">
+           Furnizim për projekte ndërtimi dhe arkitekturore
+        </li>
+      </ul>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a 
+  href="https://wa.me/38344839735?text=Pershendetje,%20jam%20i%20interesuar%20per%20ofert%C3%AB%20p%C3%ABr%20trar%C3%AB%20druri."
+  target="_blank"
+  class="hero-btn"
+  data-sq="Kërko Ofertë"
+  data-en="Request an Offer">
+   Kërko Ofertë
+</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section id="why-us" class="fade">
+  <div class="container">
+
+    <h2 
+      data-sq=" Pse të na zgjidhni ne?"
+      data-en=" Why Choose Us?"
+      style="text-align:center; font-size:34px; margin-bottom:40px;">
+       Pse të na zgjidhni ne?
+    </h2>
+
+    <div class="why-us-grid">
+
+      <div class="why-box">
+        <i class="fas fa-tree"></i>
+        <p data-sq="Dru cilësor dhe i përzgjedhur"
+           data-en="High-quality and carefully selected wood">
+          Dru cilësor dhe i përzgjedhur
+        </p>
+      </div>
+
+      <div class="why-box">
+        <i class="fas fa-tools"></i>
+        <p data-sq="Përpunim profesional dhe preciz"
+           data-en="Professional and precise processing">
+          Përpunim profesional dhe preciz
+        </p>
+      </div>
+<div class="why-box">
+  <i class="fas fa-check-circle"></i>
+  <p data-sq="Korrektësi & Transparencë" data-en="Integrity & Transparency">
+    Korrektësi & Transparencë</p>
+</div>
+
+
+<div class="why-box">
+  <i class="fas fa-industry"></i>
+  <p data-sq="Përvoje shumë vjeçare" data-en="Decades of Experience">Pervojë shumë vjeçare</p>
+</div>
+
+    </div>
+
+  </div>
+</section>
+<!--RRETH NESH-->
+<section id="about" class="fade">
+  <div class="about-box">
+    <h2 data-sq="Rreth nesh" data-en="About Us">Rreth Nesh</h2>
+    <p
+      data-sq="Biznesi ynë është ndërtuar me përkushtim që nga vitet e 60-ta.
+      Me përvojë shumëvjeçare dhe staf të përkushtuar,
+      synimi ynë ka qenë dhe mbetet ofrimi i cilësisë
+      dhe shërbimit profesional."
+      data-en="Our business has been built with dedication since the 1960s.
+      With many years of experience and a dedicated staff,
+      our goal has always been and remains to provide quality
+      and professional service.">Biznesi ynë është ndërtuar me përkushtim që nga vitet e 60-ta.
+      Me përvojë shumëvjeçare dhe staf të përkushtuar,
+      synimi ynë ka qenë dhe mbetet ofrimi i cilësisë
+      dhe shërbimit profesional.
+    </p>
+  </div>
+</section>
+
+
+
+
+<!--LOKACIONI-->
+<section id="lokacioni" class="fade" >
+  <h2 data-sq="Lokacioni" data-en="Location">Lokacioni</h2>
+
+  <div class="map-switch">
+    <button class="active" onclick="setMap('pr')">Prishtinë – Mazgit</button>
+    <button onclick="setMap('mi')">Mitrovicë</button>
+  </div>
+
+  <div class="map-wrapper">
+    <iframe
+      id="mapFrame"
+     src="https://www.google.com/maps?q=42.682678,21.112776&z=15&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<footer>
+    &copy; 2025 KOVAÇICA
+
+    <p style="margin-top:15px;font-size:15px;"
+       data-sq="🕒 Orari i punës: E hënë – E shtunë | 08:00 – 16:00"
+       data-en="🕒 Working hours: Monday – Saturday | 08:00 – 16:00">
+       🕒 Orari i punës: E hënë – E shtunë | 08:00 – 16:00
+    </p>
+
+    <div class="social-icons">
+
+        <a href="https://www.instagram.com/kovaqica" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://wa.me/38344839735" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="mailto:kovaqica.info@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</footer>
+
+<script>
+/* ================== FADE ANIMATIONS ================== */
+const faders = document.querySelectorAll('.fade');
+
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.2 });
+
+faders.forEach(el => fadeObserver.observe(el));
+
+
+/* ================== PRODUCT ANIMATION ================== */
+const products = document.querySelectorAll('.product');
+
+const productObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+products.forEach(p => productObserver.observe(p));
+
+
+/* ================== LANGUAGE SWITCH ================== */
+function setLang(lang){
+  document.querySelectorAll('[data-sq]').forEach(el => {
+
+    // INPUT & TEXTAREA → placeholder
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = el.dataset[lang];
+    }
+    // BUTTON
+    else if (el.tagName === "BUTTON") {
+      el.textContent = el.dataset[lang];
+    }
+    // ELEMENTE TJERA
+    else {
+      el.textContent = el.dataset[lang];
+    }
+
+  });
+}
+// ================== HERO SLIDER ==================
+const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      slide.style.display = 'none';
+    });
+    slides[index].classList.add('active');
+    slides[index].style.display = 'block';
+  }
+
+  // Fill initial state
+  showSlide(currentSlide);
+
+  // Auto slide every 3 seconds
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }, 3000);
+</script>
+<!--KOORDINATAT E LOKACIONIT-->
+<script>
+function setMap(city) {
+  const map = document.getElementById("mapFrame");
+
+  if (city === "pr") {
+    // Prishtinë -Mazgit
+    map.src = "https://www.google.com/maps?q=42.682678,21.112776&z=15&output=embed";
+  } 
+  else if (city === "mi") {
+    // Mitrovicë
+    map.src = "https://www.google.com/maps?q=42.8627421,20.8383340&z=15&output=embed";
+  }
+
+  // ndryshon butonin aktiv
+  document.querySelectorAll(".map-switch button").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+</script>
+</body>
+</html>

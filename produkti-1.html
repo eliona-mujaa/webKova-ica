@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Ndërtimi | KOVAÇICA</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{margin:0;font-family:Arial;background:#e8ece4}
+
+/* ==================== HEADER ==================== */
+header{
+    background:#2a3a0f;
+    color:#fff;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header a{color:#fff;margin-left:20px;text-decoration:none}
+
+/* Language buttons */
+.lang-btns button{
+    background:transparent;
+    border:1px solid #fff;
+    color:#fff;
+    padding:6px 12px;
+    margin-left:10px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.lang-btns button:hover{
+    background:#fff;
+    color:#2a3a0f;
+}
+
+/* ==================== CONTENT ==================== */
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:60px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+img{width:100%;border-radius:12px}
+.btn{
+    background:#2a3a0f;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:30px;
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+}
+
+/* ==================== FOOTER ==================== */
+footer{
+    background:#2a3a0f;
+    color:#f6f9f8;
+    text-align:center;
+    padding:30px;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;            /* largësia mes ikonave */
+    margin-top: 20px;
+}
+
+.social-icons a {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none;
+    line-height: 1;
+}
+
+.social-icons i {
+    font-size: 32px;
+    color:white;
+    transition: transform .3s, color .3s;
+}
+
+.social-icons a:hover i {
+    color: #2a3a0f;
+    transform: scale(1.2);
+}
+</style>
+</head>
+<script>
+function setLang(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-sq]').forEach(el => {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = el.getAttribute('data-' + lang);
+        } else {
+            el.textContent = el.getAttribute('data-' + lang);
+        }
+    });
+}
+</script>
+<body>
+
+<header>
+    <strong>KOVAÇICA</strong>
+
+    <nav>
+       <a href="index.html" data-sq="Ballina" data-en="Home">Ballina</a>
+    <a href="produkte.html" data-sq="Produktet" data-en="Products">Produktet</a>
+    <a href="contact.html"data-sq="Kontakti" data-en="Contact">Kontakti</a>
+    <a href="index.html#about"data-sq="Rreth Nesh" data-en="About Us">Rreth Nesh</a> 
+
+  
+        <button onclick="setLang('sq')">SQ</button>
+        <button onclick="setLang('en')">EN</button>
+    </nav>
+</header>
+
+<div class="container">
+    <img src="images/p1.jpg" alt="USB-SWISS KRONO">
+
+    <div>
+        <h2 >USB-SWISS KRONO</h2>
+
+        <p data-sq="Produkt cilësor për ndërtim profesional."
+           data-en="High-quality product for professional construction.">
+           Produkt cilësor për ndërtim profesional.
+        </p>
+
+        <p>
+            <strong data-sq="Disponueshmëri:" data-en="Availability:">Disponueshmëri:</strong>
+            <span data-sq="Në stok" data-en="In stock">Në stok</span>
+        </p>
+
+        <a href="https://wa.me/38344839735" class="btn"
+           data-sq="Porosit në WhatsApp"
+           data-en="Order on WhatsApp">
+           Porosit në WhatsApp
+        </a>
+    </div>
+</div>
+<footer>
+    &copy; 2025 KOVAÇICA
+
+    <p style="margin-top:15px;font-size:15px;"
+       data-sq="🕒 Orari i punës: E hënë – E shtunë | 08:00 – 16:00"
+       data-en="🕒 Working hours: Monday – Saturday | 08:00 – 16:00">
+       🕒 Orari i punës: E hënë – E shtunë | 08:00 – 16:00
+    </p>
+
+   <div class="social-icons">
+
+    <a href="https://www.instagram.com/kovaqica" target="_blank" aria-label="Instagram" class="icon">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/38344839735" target="_blank" aria-label="WhatsApp" class="icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="mailto:kovaqica.info@gmail.com" aria-label="Email" class="icon">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakti | KOVAÇICA</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{margin:0;font-family:Arial;background:#e8ece4}
+header{
+  background:#2a3a0f;color:#fff;
+  padding:20px 40px;
+  display:flex;justify-content:space-between;align-items:center
+}
+header a{color:#fff;margin-left:20px;text-decoration:none}
+header button{margin-left:10px;padding:5px 10px;cursor:pointer}
+
+.container{max-width:1200px;justify-content:center;;padding:60px}
+
+.contact-locations{
+  display:flex;justify-content:center;gap:40px;margin-bottom:40px
+}
+.location-box{
+  width:280px;height:280px;background:#fff;
+  padding:25px;border-left:5px solid #2a3a0f;
+  border-radius:12px;display:flex;
+  flex-direction:column;justify-content:center;
+  text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.12)
+}
+
+form{
+  max-width:600px;margin:40px auto;
+  display:flex;flex-direction:column;gap:12px
+}
+input,textarea{
+  padding:12px;border-radius:6px;border:1px solid #ccc
+}
+textarea{min-height:160px}
+button.submit{
+  background:#2a3a0f;color:#fff;
+  border:none;padding:12px;border-radius:6px;cursor:pointer
+}
+
+#status{text-align:center;margin-top:15px;font-weight:bold}
+
+.social-icons{
+  display:flex;justify-content:center;gap:25px;margin:30px 0
+}
+.social-icons i{font-size:28px;color:#2a3a0f}
+
+footer{
+  background:#2a3a0f;color:#fff;
+  text-align:center;padding:30px;margin-top:60px
+}
+
+@media(max-width:768px){
+  .contact-locations{flex-direction:column;align-items:center}
+}
+/* Social icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;            /* largësia mes ikonave */
+    margin-top: 20px;
+}
+
+.social-icons a {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none;
+    line-height: 1;
+}
+
+.social-icons i {
+    font-size: 32px;
+    color:white;
+    transition: transform .3s, color .3s;
+}
+.nalt i{
+  color:#000!important;
+}
+
+.social-icons a:hover i {
+    color: #fff;
+    transform: scale(1.2);
+
+
+}
+
+.h {
+  text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<strong>KOVAÇICA</strong>
+<nav>
+  <a href="index.html" data-sq="Ballina" data-en="Home">Ballina</a>
+  <a href="produkte.html" data-sq="Produktet" data-en="Products">Produktet</a>
+  <a href="contact.html" data-sq="Kontakti" data-en="Contact">Kontakti</a>
+  <a href="index.html#about"data-sq="Rreth Nesh" data-en="About Us">Rreth Nesh</a>
+  <button onclick="setLang('sq')">SQ</button>
+  <button onclick="setLang('en')">EN</button>
+</nav>
+</header>
+
+
+
+<section id="kontakt">
+    <h2 data-sq="Kontakti" data-en="Contact" class="h">Kontakti</h2>
+   <div class="contact-locations">
+  <div class="location-box">
+    <h3>📍 Mitrovicë</h3>
+    <p><i class="fas fa-phone"></i> +383 44 839 735</p>
+    <p><i class="fas fa-phone"></i> +383 49 688 587</p>
+    <p><i class="fas fa-envelope"></i> kovaqica.info@gmail.com</p>
+  </div>
+
+  <div class="location-box">
+    <h3>📍 Prishtinë</h3>
+    <p><i class="fas fa-phone"></i> +383 43 991 999</p>
+    <p><i class="fas fa-phone"></i> +383 49 190 089</p>
+    <p><i class="fas fa-envelope"></i> kovaqica.info@gmail.com</p>
+  </div>
+</div>
+
+<div class="social-icons nalt">
+  <a href="https://wa.me/38344839735"><i class="fab fa-whatsapp"></i></a>
+  <a href="mailto:kovaqica.info@gmail.com"><i class="fas fa-envelope"></i></a>
+</div>
+
+<h2 data-sq="Dërgo një mesazh" data-en="Send a message" class="h">Dërgo një mesazh</h2>
+
+<form id="contact-form">
+  <input type="text" name="name" placeholder="Emri" data-sq="Emri" data-en="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Mesazhi" data-sq="Mesazhi" data-en="Message" required></textarea>
+  <button type="submit" class="submit" data-sq="Dërgo" data-en="Send">Dërgo</button>
+</form>
+
+<p id="status"></p>
+
+</div>
+
+<footer>
+<p>&copy; 2025 KOVAÇICA</p>
+<p data-sq="🕒 Orari: Hënë – Shtunë | 08:00 – 16:00"
+   data-en="🕒 Hours: Monday – Saturday | 08:00 – 16:00">
+   🕒 Orari: Hënë – Shtunë | 08:00 – 16:00
+</p>
+<div class="social-icons">
+
+    <a href="https://www.instagram.com/kovaqica" target="_blank" aria-label="Instagram" class="icon">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/38344839735" target="_blank" aria-label="WhatsApp" class="icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="mailto:kovaqica.info@gmail.com" aria-label="Email" class="icon">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+</footer>
+
+<!-- ================= EMAILJS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+emailjs.init("t7jKnIMgZ0FErC6yW"); // 🔴 vendos Public Key
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("status");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_9w5iuxs",   // 🔴 service_xxxx
+      "template_5quu4xh",  // 🔴 template_xxxx
+      this
+    ).then(()=>{
+      status.textContent = "Mesazhi u dërgua me sukses!";
+      status.style.color = "green";
+      form.reset();
+    }).catch(()=>{
+      status.textContent = "Gabim gjatë dërgimit!";
+      status.style.color = "red";
+    });
+  });
+
+});
+</script>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll("[data-sq]").forEach(el=>{
+    if(el.tagName==="INPUT"||el.tagName==="TEXTAREA"){
+      el.placeholder = el.dataset[lang];
+    } else {
+      el.textContent = el.dataset[lang];
+    }
+  });
+}
+</script>
+
+</body>
+</html>
